@@ -3,7 +3,7 @@
 So, i was reading a blog post about cheat detections from anti-cheats ( ACs ) </br>
 specifically [`Detecting manually mapped drivers`](https://tulach.cc/detecting-manually-mapped-drivers/)
 written by [`SamuelTulach`](https://github.com/SamuelTulach) <br/> 
-so after reading it i came up with a very simple solution...
+so after reading it i came up with a very simple solution... <br/>
 I highly suggest to read the article before checking this project out.
 
 ## How it works:

@@ -21,7 +21,7 @@ and does not represent a problem since it does not generate `jmp` ( it's just a 
 
 ## Usage: 
 For a simple code example ready to compile you can check out the [`example project`](https://github.com/Th3Spl/NoImportz/tree/main/NoImportz). <br/>
-**ISO C++17 Standard (/std:c++17)**
+**IT requires: `ISO C++17 Standard (/std:c++17)`**
 
 Initialization:
 ```cpp

@@ -15,7 +15,9 @@ who are just getting into the windows Kernel environment can gather some useful 
 - We dynamically find the exports using some `PE Header` knowledge ( similar to `MmSystemRoutineAddress` )
 - We then use some modern C++ features to create a single function `call` which can handle everything
 
-And well... that's all, is actually nothing new or extraordinary but it can still be useful for someone
+And well... that's all, is actually nothing new or extraordinary but it can still be useful for someone <br/><br/>
+**Note: there will be only one import: `PsLoadedModuleList` which will most likely be inlined by the compiler </br>
+and does not represent a problem since it does not generate `jmp` ( it's just a pointer. )**
 
 ## Usage: 
 For a simple code example ready to compile you can check out the [`example project`](https://github.com/Th3Spl/NoImportz/tree/main/NoImportz).

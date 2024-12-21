@@ -12,7 +12,7 @@ who are just getting into the windows Kernel environment can gather some useful 
 
 - We get the `PsLoadedModuleList` ( which contains all the legitly loaded drivers )
 - We iterate through the list and find the target module base address
-- We dynamically find the exports using some `PE Header` knowledge ( similar to `MmSystemRoutineAddress` )
+- We dynamically find the exports using some `PE Header` knowledge ( similar to `MmGetSystemRoutineAddress` )
 - We then use some modern C++ features to create a single function `call` which can handle everything
 
 And well... that's all, is actually nothing new or extraordinary but it can still be useful for someone <br/><br/>

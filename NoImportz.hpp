@@ -98,6 +98,24 @@ public:
 
 
 	//
+	// Custom implementation for wcscmp 
+	// because sometimes it gets marked as import
+	//
+	__forceinline int __fastcall __impl_wcscmp( const wchar_t* str1, const wchar_t* str2 )
+	{
+		/* Looping the strings */
+		while ( *str1 != L'\0' && *str2 != L'\0' ) {
+			if ( *str1 != *str2 ) {
+				return ( *str1 - *str2 );
+			}
+			++str1;
+			++str2;
+		}
+		return ( *str1 - *str2 );
+	}
+
+
+	//
 	// Get a module's base address
 	//
 	__forceinline PVOID __fastcall get_module_base( _In_ const wchar_t* module_name )
@@ -117,7 +135,7 @@ public:
 		do
 		{
 			/* Checking if the current module is the one we're interested in */
-			if ( modules_entry->BaseDllName.Buffer && wcscmp( modules_entry->BaseDllName.Buffer, module_name ) == 0 )
+			if ( modules_entry->BaseDllName.Buffer && this->__impl_wcscmp( modules_entry->BaseDllName.Buffer, module_name ) == 0 )
 				return modules_entry->DllBase;
 
 			/* Incrementing the pointer */
@@ -142,6 +160,9 @@ public:
 	//
 	// Wrap calling the function
 	//
+#pragma warning(push)
+#pragma warning(disable : 4190)
+#pragma warning(disable : 4503)
 	template<typename func, typename... params>
 	auto __fastcall call( _In_ const char* func_name, _In_ params... f_params )
 	{
@@ -156,6 +177,7 @@ public:
 		/* Calling the function and returning the result */
 		return target_func( f_params... );
 	}
+#pragma warning(pop)
 
 
 private:

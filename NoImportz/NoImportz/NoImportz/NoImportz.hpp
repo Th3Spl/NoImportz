@@ -21,6 +21,13 @@
 
 
 //
+// Simple MACRO call ( this is for simplicity of use )
+//
+#define ni_call(_class, func, ...) _class.call<decltype(func)>(#func, __VA_ARGS__);
+#define nip_call(_class, func, ...) _class.call<func>(#func, __VA_ARGS__);
+
+
+//
 // This is the only needed simbol from ntoskrnl.exe
 // ( which is not so easily pattern scannable... )
 //

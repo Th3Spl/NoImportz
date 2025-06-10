@@ -38,6 +38,7 @@ if ( !winapi.is_initialized() )
 
 Calling a function:
 ```cpp
+/* standard call */
 PVOID addr = winapi.call<decltype( ExAllocatePool2 )> (
 	"ExAllocatePool2", POOL_FLAG_NON_PAGED,
 	4096, 'TeSt'

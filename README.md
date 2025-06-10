@@ -45,9 +45,8 @@ PVOID addr = winapi.call<decltype( ExAllocatePool2 )> (
 
 /* using wrapper MACROs */
 addr = ni_call(
-	winapi, 
-	ExAllocatePool2, POOL_FLAG_NON_PAGED, 
-	4096, 'TeSt'
+	winapi, ExAllocatePool2, 
+	POOL_FLAG_NON_PAGED, 4096, 'TeSt'
 );
 ```
 **Note: if you have to call a function multiple times you can wrap it into a different unique function...**

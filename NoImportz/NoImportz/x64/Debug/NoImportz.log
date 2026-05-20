@@ -1,6 +1,0 @@
-﻿  Building 'NoImportz' with toolset 'WindowsKernelModeDriver10.0' and the 'Universal' target platform.
-  Driver.cpp
-  NoImportz.vcxproj -> C:\Users\yggvo\Desktop\NoImportz\NoImportz\x64\Debug\NoImportz.sys
-  Driver is 'Universal'.
-  DrvCat task was skipped as there was no catalog file to process
-  

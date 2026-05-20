@@ -10,14 +10,14 @@ I highly suggest to read the article before checking this project out.
 So, it's very easy and straightforward but i would like to explain so that people <br/>
 who are just getting into the windows Kernel environment can gather some useful info. <br/>
 
-- We get the `PsLoadedModuleList` ( which contains all the legitly loaded drivers )
-- We iterate through the list and find the target module base address
+- We get the content of the LSTAR MSR, which is a pointer within ntoskrnl.exe's memory.
+- We iterate backwards at 64Kb granularity until we find a PE that looks like ntoskrnl's one.
+- We get the `PsLoadedModuleList` ( which contains all the legitimately loaded drivers ) through ntoskrnl's exports.
+- We iterate through the list and find the target module base address.
 - We dynamically find the exports using some `PE Header` knowledge ( similar to `MmGetSystemRoutineAddress` )
 - We then use some modern C++ features to create a single function `call` which can handle everything
 
-And well... that's all, is actually nothing new or extraordinary but it can still be useful for someone <br/><br/>
-**Note: there will be only one import: `PsLoadedModuleList` which will most likely be inlined by the compiler </br>
-and does not represent a problem since it does not generate `jmp` ( it's just a pointer. )**
+And well... that's all, it's actually nothing new or extraordinary but it can still be useful for someone <br/><br/>
 
 ## Usage: 
 For a simple code example ready to compile you can check out the [`example project`](https://github.com/Th3Spl/NoImportz/tree/main/NoImportz). <br/>
@@ -50,11 +50,11 @@ addr = ni_call(
 	POOL_FLAG_NON_PAGED, 4096, 'TeSt'
 );
 ```
-**Note: if you have to call a function multiple times you can wrap it into a different unique function...**
 
 ## Features:
 - [x] Supports all modules
 - [x] Supports variadic functions
+- [x] NEW: Supports caching
 
 #### By: Th3Spl
 

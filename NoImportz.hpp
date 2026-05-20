@@ -568,7 +568,7 @@ private:
 			auto nt = reinterpret_cast< PIMAGE_NT_HEADERS >( addr_in_ntos + dos->e_lfanew );
 			if ( nt->Signature != IMAGE_NT_SIGNATURE || nt->OptionalHeader.Magic != IMAGE_NT_OPTIONAL_HDR64_MAGIC || nt->OptionalHeader.NumberOfRvaAndSizes <= IMAGE_DIRECTORY_ENTRY_EXPORT )
 			{ 
-				addr_in_ntos -= PAGE_SIZE; 
+				addr_in_ntos -= 0x10000; 
 				continue; 
 			}
 

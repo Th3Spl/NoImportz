@@ -54,7 +54,7 @@ addr = ni_call(
 ## Features:
 - [x] Supports all modules
 - [x] Supports variadic functions
-- [x] NEW: Supports caching
+- [x] **NEW**: Supports caching
 
 #### By: Th3Spl
 
